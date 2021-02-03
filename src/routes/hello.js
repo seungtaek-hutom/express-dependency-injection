@@ -1,7 +1,10 @@
 const express = require('express');
-const helloService = require('../services/hello');
+const helloModel = require('../models/hello');
+const HelloService = require('../services/hello');
 
 const router = express.Router();
+
+const helloService = new HelloService(helloModel);
 
 router.get('/', (req, res) => {
   helloService.sayHello();
